@@ -1,4 +1,4 @@
-[book]
+book]
 authors = ["Aleksandre Kandelaki", "Hammad Nasir"]
 language = "en"
 multilingual = false
@@ -14,4 +14,5 @@ command = "mdbook-mermaid"
 
 [output.html]
 additional-js = ["mermaid.min.js", "mermaid-init.js"]
+mathjax-support = true
 

@@ -1,11 +1,8 @@
 # P2P Protocol Design  
 
-
-```mermaid
-flowchart TD
-    A[Christmas] -->|Get money| B(Go shopping)
-    B --> C{Let me think}
-    C -->|One| D[Laptop]
-    C -->|Two| E[iPhone]
-    C -->|Three| F[fa:fa-car Car]
+As already pointed out in [High Level Design](./high_level_design.md) section, P2P protocol is responsible for peer-to-peer connections of the same module. It could be RPS-to-RPS, CM/UI-To-CM/UI, Gossip-To-Gossip, or as in our case: **Onion-To-Onion**
+```
+            ____________________________________________________________________
+            |                                 |                                 |
+            |_________________________________|_________________________________|
 ```

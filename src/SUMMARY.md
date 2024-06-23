@@ -11,3 +11,6 @@
 - [Onion Tunnel](./onion_tunnel.md)
     - [Ephemeral Key Formation](./ephemeral_key_formation.md)
 - [Cryptography](./cryptography.md)
+
+- [Reports](./reports/reports.md)
+    - [Midterm Report](./reports/midterm_report.md)

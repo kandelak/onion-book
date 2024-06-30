@@ -29,7 +29,17 @@ There were no changes made.
 title: Logical Structure
 ---
 classDiagram
-    
+    direction TB
+    Tunnel o-- "2 (hopCount)" Peer
+    Peer o-- "*" HostKey
+    Connection o-- Tunnel
+    Connection o-- EphemeralKey
+    Tunnel -- Round
+    OnionModule --> Connection
+    OnionModule o-- Traffic
+    OnionModule .. Config
+    OnionModule ..ProtocolP2P
+    OnionModule ..ProtocolAPI
     class Tunnel{
         +[Peer] hops    
         +int round
@@ -38,7 +48,7 @@ classDiagram
     }
 
     class OnionModule{
-        +Config config
+        -Config config
     }
 
     class HostKey{
@@ -46,17 +56,16 @@ classDiagram
         +String privKey
     }
     class Connection{
-        +Peer peerFrom
-        +Peer peerTo
+        -Peer src
+        -Peer dest
         +switchTunnel() Tunnel
         +Tunnel tunnel
         +socket
-        +[Map~hopFrom,hopTo, EphemeralKey~]ephemeralKeys
     }
 
     class Peer{
         +String networkAddress
-        +Hostkey hostkey
+        -Hostkey hostkey
     }
 
     class EphemeralKey{
@@ -71,14 +80,11 @@ classDiagram
         +int duration
     }
 
-    class BootstrapingService{
-
-    }
-
     class ProtocolP2P{
     }
     class ProtocolAPI{
     }
+
     class Traffic{
         +String traffic
         +bool isCover

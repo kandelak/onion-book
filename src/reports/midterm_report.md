@@ -227,6 +227,19 @@ sequenceDiagram
 
 > Note: The `Key Exchange Adv` process is extended with the same logic for additional nodes.
 
+##### Time To Switch Tunnel
+```mermaid
+---
+title: Time To Switch Tunnel
+---
+flowchart TD
+    A{Is 1st Round?} --> |Yes| AY(Return True)
+    A --> |No| B{"If (TS + RT - TSW) <= TN"}
+    B --> |Yes| BY(Return True)
+    B --> |No| BN(Wait 0.1 sec)
+    BN --> B
+```
+
 ### Networking
 
 ## Security Measures

@@ -189,10 +189,43 @@ flowchart TD
 title: Build Tunnel
 ---
 flowchart TD
-    A("Get 3 nodes from RPS (the last one from global state if possible)") --> B("Key Exchange (Node 1)")
-    B --> C("Key Exchange (Node 2)")
-    C --> D("Key Exchange (Node 3)")
+    A("Get 3 nodes from RPS (the last one from global state if possible)") --> B("Key Exchange Basic (Node 1)")
+    B --> C("Key Exchange Adv (Node 2)")
+    C --> D("Key Exchange Adv (Node 3)")
 ```
+
+###### Key Exchange
+
+The keys provided in the following table is to be utilized to interpret the sequence diagram below.
+
+|Key|Description|Example|
+|-|-|-|
+|P<sub>X</sub>|Public key of node `X`.|-|
+|[C]K|Content `C` encrypted by the key `K`.|[X]P<sub>A</sub>: Content `X` encrypted by the public key of node `A` |
+|K<sub>AB</sub>|Ephemeral key for nodes `A` and `B`|-|
+
+```
+---
+title: Key Exchange Basic
+---
+sequenceDiagram
+    A->>B: [X]PB
+    B->>A: [Y]PA
+    A->B: K(AB)
+```
+
+```mermaid
+---
+title: Key Exchange Adv
+---
+sequenceDiagram
+    A->>B: [[X]PC]K(AB)
+    B->>C: [X]PC
+    C->>B: [[Y]PA]PB
+    B->>A: [Y]PA
+```
+
+> Note: The `Key Exchange Adv` process is extended with the same logic for additional nodes.
 
 ### Networking
 

@@ -204,7 +204,7 @@ The keys provided in the following table is to be utilized to interpret the sequ
 |[C]K|Content `C` encrypted by the key `K`.|[X]P<sub>A</sub>: Content `X` encrypted by the public key of node `A` |
 |K<sub>AB</sub>|Ephemeral key for nodes `A` and `B`|-|
 
-```
+```mermaid
 ---
 title: Key Exchange Basic
 ---

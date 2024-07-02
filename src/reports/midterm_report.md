@@ -169,7 +169,7 @@ The keys provided in the following table is to be utilized to interpret the flow
 |T<sub>S</sub>|**Time Start:** The timestamp of the starting of the current round.|
 |R<sub>T</sub>|**Round Time:** The duration of a round in seconds. Defined in the config file.|
 |T<sub>B</sub>|**Time Build:** The estimated max time elapsed while building a tunnel. Defined in the config file.| 
-|T<sub>SW</sub>|**Time Switch:** |The estimated max time elapsed while switching a tunnel. Defined in the config file.|
+|T<sub>SW</sub>|**Time Switch:** The estimated max time elapsed while switching a tunnel. Defined in the config file.|
 
 ```mermaid
 ---
@@ -181,6 +181,10 @@ flowchart TD
     B --> |Yes| BY(Return True)
     B --> |No| BN(Return False)
 ```
+
+##### Build Tunnel
+
+
 
 ### Networking
 

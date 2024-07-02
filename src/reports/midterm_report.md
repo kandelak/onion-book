@@ -171,7 +171,16 @@ The keys provided in the following table is to be utilized to interpret the flow
 |T<sub>B</sub>|**Time Build:** The estimated max time elapsed while building a tunnel. Defined in the config file.| 
 |T<sub>SW</sub>|**Time Switch:** |The estimated max time elapsed while switching a tunnel. Defined in the config file.|
 
-
+```mermaid
+---
+title: Time To Build Tunnel
+---
+flowchart TD
+    A{Is 1st Round?} --> |Yes| AY(Return True)
+    A --> |No| B{"If (TS + RT - TB) <= TN"}
+    B --> |Yes| BY(Return True)
+    B --> |No| BN(Return False)
+```
 
 ### Networking
 

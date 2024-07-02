@@ -184,7 +184,15 @@ flowchart TD
 
 ##### Build Tunnel
 
-
+```mermaid
+---
+title: Build Tunnel
+---
+flowchart TD
+    A("Get 3 nodes from RPS (the last one from global state if possible)") --> B("Key Exchange (Node 1)")
+    B --> C("Key Exchange (Node 2)")
+    C --> D("Key Exchange (Node 3)")
+```
 
 ### Networking
 

@@ -168,17 +168,19 @@ These are the security measures we want to take in our Project:
 > Note 2: The specified `Response Object Type` is for success cases, in the case of failure `ONION ERROR` is sent.
 
 #### Incoming API Requests
-|#|Name|Request Object Type|Response Object Type|
-|-|-|-|-|
-|1.1|Build Onion Tunnel|`ONION TUNNEL BUILD`|`ONION TUNNEL READY`|
-|1.2|Destroy Onion Tunnel|`ONION TUNNEL DESTROY`|-|
-|1.3|Send Onion Cover|`ONION COVER`|-|
+|#|Name|Request Object Type|Response Object Type|Description|
+|-|-|-|-|-|
+|1.1|Build Onion Tunnel|`ONION TUNNEL BUILD`|`ONION TUNNEL READY`|Sets the `DEST NODE` in the global state to the address/port specified in the request. If the tunnel is built successfully in the subsequent round, the specifeid response is sent, otherwise an error message is sent.|
+|1.2|Destroy Onion Tunnel|`ONION TUNNEL DESTROY`|-|If the specified tunnel exists in the global state, then it is destoryed.|
+|1.3|Send Onion Cover|`ONION COVER`|-|The specified random amounts of bytes are sent on the established tunnel, if `DEST NODE` in the global state is set.|
 
 #### Outgoing API Requests
-|#|Name|Request Object Type|Response Object Type|
-|-|-|-|-|
-|2.1|Incoming Onion Tunnel|`ONION TUNNEL INCOMING`|-|
-|2.2|Incoming Onion Data|`ONION TUNNEL DATA`|-|
+|#|Name|Request Object Type|Response Object Type|Description|
+|-|-|-|-|-|
+|2.1|Incoming Onion Tunnel|`ONION TUNNEL INCOMING`|-|Once a new tunnel is registerd in the global state this message is sent to the CM/UI module.|
+|2.2|Incoming Onion Data|`ONION TUNNEL DATA`|-|Once a data packet is recieved from an established tunnel, this message is sent to the CM/UI module.|
+
+### P2P Specification
 
 ## Future Work
 

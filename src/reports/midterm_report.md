@@ -142,6 +142,23 @@ Our module consists of primarily three threads namely:
 
 In addition to the threads above, the **API Thread** and the **P2P Thread** both will spawn arbitrary threads to handle the established connections.
 
+#### Round Thread
+
+```mermaid
+---
+title: Round Thread
+---
+flowchart TD
+    A{Time To Build Tunnel?} --> |Yes| B(Build Tunnel)
+    A --> |No| AN(Wait 0.25 sec)
+    AN --> A
+    B --> C{Time To Switch Tunnel?}
+    C --> |No| CN(Wait 0.1 sec)
+    CN --> C
+    C --> |Yes| D(Switch Tunnel)
+    D --> A
+```
+
 ### Networking
 
 ## Security Measures

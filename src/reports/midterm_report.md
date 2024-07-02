@@ -133,11 +133,14 @@ classDiagram
 
 ```
 
-
-
-
-
 ### Process Architecture
+
+Our module consists of primarily three threads namely:
+- **Round Thread:** Responsible for managing rounds (e.g, building and switching tunnels).
+- **API Thread:** Listens for API connections.
+- **P2P Thread:** Listens for P2P connections.
+
+In addition to the threads above, the **API Thread** and the **P2P Thread** both will spawn arbitrary threads to handle the established connections.
 
 ### Networking
 

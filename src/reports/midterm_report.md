@@ -240,7 +240,27 @@ flowchart TD
     BN --> B
 ```
 
-### Networking
+##### Switch Tunnel
+
+```mermaid
+---
+title: Switch Tunnel
+---
+flowchart TD
+    A(Destroy Current Tunnel) --> B("Destroy Tunnel Message (Node 3)")
+    B --> BD{"Tunnel Destroyed Ack (Node 3)?"}
+    BD --> |No| BDN(Wait 0.5 sec)
+    BDN --> B
+    BD --> |Yes| C("Destroy Tunnel Message (Node 2)")
+    C --> CD{"Tunnel Destroyed Ack (Node 2)?"}
+    CD --> |No| CDN(Wait 0.5 sec)
+    CDN --> C
+    CD --> |Yes| D("Destroy Tunnel Message (Node 1)")
+    D --> DD{"Tunnel Destroyed Ack (Node 1)?"}
+    DD --> |No| DDN(Wait 0.5 sec)
+    DDN --> D
+    DD --> |Yes| E(Free Resources & Reset State)
+```
 
 ## Security Measures
 

@@ -1,8 +1,7 @@
 # Midterm Report
 
-```
-Note: Following is a printed version of our Midterm report. For better visualization, please visit our documentation website
-```
+>Note: Following is a printed version of our Midterm report. For better visualization, please visit our documentation website
+
 [Onion Project Documentation Website](https://kandelak.github.io/onion-book/reports/midterm_report.html) 
 
 
@@ -336,9 +335,9 @@ After the tunnel is created, last hop to which the tunnel exists is used to exte
 - EXTENDED_SEC_CHANNEL
 
 
-```
-We are still designing how the handshake data will look like but after the handshake is done, we have a secure channel between initiator and responder
-```
+
+> We are still designing how the handshake data will look like but after the handshake is done, we have a secure channel between initiator and responder
+
 
 
 We are still working on other parts of the P2P specification and will include it in the final report. This is partly because we want to try out different approaches and would adjust specification during the development. 

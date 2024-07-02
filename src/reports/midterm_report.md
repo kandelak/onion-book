@@ -160,13 +160,25 @@ These are the security measures we want to take in our Project:
 |Limit Sybill Attacks|Sybil Attacks mostly occur when fake identities are being created to gain large influence on the network. This could result in degraded network performance. In our context: If Alice wants to call Bob and chooses relays (one of them or all) from a sybill sub-network, the call quality can be affected since sybill group memebers can decide not to act as hops or not to redirect the traffic to other hops. The probability of this vulnerability to happen increases with increased number of fake identities. |Proof of Work: Creating new identities will require solving hard puzzles resulting in infeasibility of issueing multiple fake identities. In our implementation, the original identities (hostkey) that are present in the very first network are considered valid. If new peers want to join the network, they have to register themselves to one of the peers that are present in the network. Registering means solving a puzzle acquired from trusted peers in the network and signing them with the new identity. |
 |DDoS Protection|A malicios actor in our network could call multiple Onion Modules to congest the network and execute a DDoS attack. For instance, Malory (Malicios Actor) calls every participant in the network. Alice wants to call Bob, but Bob is talking with Malory and the communication between Alice and Bob can't happen anymore | We'll apply rate limiting, hence a peer is able to call only limited amount of participants (or only one) in the network at the same time. Monitoring if every peer adheres to this rule can be done through Gossip Protocol. |
 
-## Specification of the Peer-To-Peer Protocol
+## Specification
 
+### API Specification
 
-|Field| Size| 
-|---|---|
-|size|2 bytes|
-|P2P Command|2 bytes|
+> Note 1: All object types listed in the APIs below are defined in the original specification document.
+> Note 2: The specified `Response Object Type` is for success cases, in the case of failure `ONION ERROR` is sent.
+
+#### Incoming API Requests
+|#|Name|Request Object Type|Response Object Type|
+|-|-|-|-|
+|1.1|Build Onion Tunnel|`ONION TUNNEL BUILD`|`ONION TUNNEL READY`|
+|1.2|Destroy Onion Tunnel|`ONION TUNNEL DESTROY`|-|
+|1.3|Send Onion Cover|`ONION COVER`|-|
+
+#### Outgoing API Requests
+|#|Name|Request Object Type|Response Object Type|
+|-|-|-|-|
+|2.1|Incoming Onion Tunnel|`ONION TUNNEL INCOMING`|-|
+|2.2|Incoming Onion Data|`ONION TUNNEL DATA`|-|
 
 ## Future Work
 

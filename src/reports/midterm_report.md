@@ -1,5 +1,7 @@
 # Midterm Report
 
+Hammad Nasir
+
 ## Changes To  the Initial Report
 There were no changes made.
 ## Architecture of our Module

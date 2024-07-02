@@ -1,5 +1,11 @@
 # Midterm Report
 
+```
+Note: Following is a printed version of our Midterm report. For better visualization, please visit our documentation website
+```
+[Onion Project Documentation Website](https://kandelak.github.io/onion-book/reports/midterm_report.html) 
+
+
 ## Changes To  the Initial Report
 There were no changes made.
 ## Architecture of our Module
@@ -303,6 +309,48 @@ These are the security measures we want to take in our Project:
 
 ### P2P Specification
 
+Note: This is just a draft of our final P2P Specification and each specification is subject to change for our final report.
+
+## Creating Tunnel
+
+### CREATE_SEC_CHANNEL (Request)
+|Field|Description|Size|
+|---|---|---|
+|DEST_IP_ADDRESS|IP adress of the destination (IPv4/IPv6)|Depends on the IP version|
+|DEST_HOST_KEY|Host key of the destination|Host key length in bytes
+|HAND_DATA_LENGTH|Initiator Handshake Data Length|2 bytes|
+|HAND_DATA|Initiator Handshake Data|HAND_DATA_LENGTH|
+
+### CREATED_SEC_CHANNEL (Response)
+|Field|Description|Size|
+|---|---|---|
+|DEST_IP_ADDRESS|IP adress of the destination (IPv4/IPv6)|Depends on the IP version|
+|DEST_HOST_KEY|Host key of the destination|Host key length in bytes
+|HAND_DATA_LENGTH|Responder Handshake Data Length|2 bytes|
+|HAND_DATA|Responder Handshake Data|HAND_DATA_LENGTH|
+
+## Extending Tunnel (With variable number of Hops)
+
+After the tunnel is created, last hop to which the tunnel exists is used to extend the tunnel. Message formats are similar to CREATE_SEC_CHANNEL/CREATED_SEC_CHANNEL but we weill rename them to:
+- EXTEND_SEC_CHANNEL
+- EXTENDED_SEC_CHANNEL
+
+
+```
+We are still designing how the handshake data will look like but after the handshake is done, we have a secure channel between initiator and responder
+```
+
+
+We are still working on other parts of the P2P specification and will include it in the final report. This is partly because we want to try out different approaches and would adjust specification during the development. 
+
+The types of P2P Messages we would like to employ are:
+- TRAFFIC_DATA - Datagram for exchanging data through tunnel using P2P Protocoll. This will incorporate the cover traffic data as well
+- DESTROY_TUNNEL - Datagram for signalling that tunnel should be deestroyed.
+## Destroy Tunnel
+
+
+
+
 ## Future Work
 
 ### Group Certificates Through Ring Signatures 
@@ -310,4 +358,15 @@ As opposed to signing the identity of a peer with a single trusted peer, we woul
 
 ## Workload Distribution - Who Did What? 
 
+|Aleksandre Kandelaki|Hammad Nasir|
+|---|---|
+|Designed Class Diagram and did use-case analysis of the project|Contributed to analyzing the Process Architecture, threading and Networking|
+|Contributed to the Security Measures Section|Contributed to the API & P2P Specification|
+|Contributed to P2P Specification|Worked on analyzing Security Measures that will be addressed in our project|
+
+
 ## Effort Spent for the Project
+
+Aleksandre Kandelaki - Spent around 5-7 hours a week on average for this project
+
+Hammad Nasir - Spent around 5-7 hours a week on average
